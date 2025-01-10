@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: s19cv55bb-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: s19cv55bb-python 
+  name: s19cv55bb-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: s19cv55bb-python
+    weight: 100 
